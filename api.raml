@@ -1,0 +1,98 @@
+#%RAML 1.0
+title: Test - API
+baseUri: http://example.com/api/
+version: v1
+
+/server_status:
+  displayName: Server Status
+  get:
+    description: Get the server status
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "status": 200
+              }
+/locales:
+  displayName: Locales
+  get:
+    description: Get all available languages
+/challenges:
+  get:
+    description: Get all open challenges and their opponents
+  post:
+    description: Create a new challenge
+  displayName: Challenges
+  /{challengeId}:
+    get:
+    /accept:
+      post:
+        description: Accept a challenge from your opponent
+    /submit/{questionId}:
+      post:
+        description: Submit an answer to a question
+    /result:
+      get:
+        description: Get the result of a finished challenge
+/users:
+  displayName: Users
+  /{userId}:
+    get:
+      description: Get the user information
+    post:
+      description: Update a user
+  /login:
+    post:
+      description: Login a user
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "status": true,
+                  "user": {},
+                  "rank":23
+                }
+        400:
+          body:
+            application/json:
+              example: |
+                {
+                  "status": false,
+                  "user": null
+                }
+  /leaderboard:
+    get:
+      description: Get the leaderboard
+      queryParameters:
+          offset:
+            displayName: Offset
+            type: number
+            description: The offset for the leaderboard
+            example: 10
+            required: false
+          row_count:
+            displayName: Row Count
+            type: number
+            description: How many entries are returned
+            example: 10
+            required: false
+      responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  {
+                    "status": true
+                  }
+          400:
+            body:
+              application/json:
+                example: |
+                  {
+                    "status": false
+                  }
+

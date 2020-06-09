@@ -1,0 +1,12 @@
+{
+  "name": "raml-test",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node_modules/raml2html/bin/raml2html api.raml > dist/index.html"
+  },
+  "dependencies": {
+    "raml2html": "^7.5.0"
+  },
+  "devDependencies": {}
+}
