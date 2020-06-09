@@ -14,5 +14,3 @@ jobs:
       uses: actions-go/push@master
       with:
         commit-message: '[Auto] convert .raml to .html'
-        ref: master
-
