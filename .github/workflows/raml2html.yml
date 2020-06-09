@@ -10,14 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-      
-    - name: Install the npm packages
-      run: npm install
-    - name: Convert .raml to .html
-      run: npm run build
-    - name: Commit changes to master
-      run: |
-        git add .
-        git commit -m ".raml converted to .html"
-        git push master
+    - name: Push changes
+      uses: actions-go/push@master
+      with:
+        commit-message: '[Auto] convert .raml to .html'
+        remote: origin
+        ref: master
+
