@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node_modules/raml2html/bin/raml2html api.raml > dist/index.html"
+    "build": "node_modules/raml2html/bin/raml2html src/api.raml > index.html"
   },
   "dependencies": {
     "raml2html": "^7.5.0"
